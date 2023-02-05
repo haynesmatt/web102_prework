@@ -180,7 +180,6 @@ let fundInfo = `A total of ${totRaised} has been raised for ${numGames} ${numGam
 
 // create a new DOM element containing the template string and append it to the description container
 let desc = document.createElement("p");
-// descriptionContainer.classList.add("fundDesc");
 desc.innerHTML = `${fundInfo}`;
 descriptionContainer.appendChild(desc);
 
@@ -197,7 +196,15 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+let [first, second, ...rest] = sortedGames;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+let firstFunded = document.createElement("p");
+firstFunded.innerHTML = `${first.name}`;
+firstGameContainer.appendChild(firstFunded);
+
 
 // do the same for the runner up item
+let secondFunded = document.createElement("p");
+secondFunded.innerHTML = `${second.name}`;
+secondGameContainer.appendChild(secondFunded);
